@@ -5,7 +5,7 @@ pipeline {
     }
 
     environment {
-        IMAGE_NAME = "saimanasg/static-site"
+        IMAGE_NAME = "saimanasg/webapp"
         NEXT_VERSION = nextVersion()
         DOCKER_CREDENTIALS_ID = "CloudJenkinsDockerHubPAT"
         TAG = "${NEXT_VERSION}"
@@ -35,7 +35,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                        docker buildx build --platform linux/amd64,linux/arm64,windows/amd64,linux/ppc64le \\
+                        docker buildx build --platform linux/amd64,linux/arm64 \\
                         -t ${IMAGE_NAME}:${TAG} . --push
                     """
                 }
