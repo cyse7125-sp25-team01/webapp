@@ -1,3 +1,4 @@
+test
 # Liquibase Docker Image
 
 This repository contains a Dockerized Liquibase image.
